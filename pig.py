@@ -43,6 +43,19 @@ class GameLoop:
         self.max_points = 100
         self.current_player = None
         self.temp_round_score = 0
+    def start_game(self):
+        self.print_instructions()
+        play_again = True
+        while play_again:
+            self.run_game()
+            play_again = input("Do you want to play again?")
+            play_again = play_again.lower().startswith("y")
+    def run_game(self):
+        self.max_points = 100
+        self.current_player = None
+
+        while self.max_points < 100:
+            
 
 
 class Die(GameLoop):
@@ -61,4 +74,4 @@ if __name__ == '__main__':
     p2 = super(HumanPlayer)
     die_roll = super(Die)
 
-    
+
